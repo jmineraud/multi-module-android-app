@@ -1,0 +1,3 @@
+[submodule "multi-module-android-lib"]
+	path = lib
+	url = https://github.com/jmineraud/multi-module-android-lib.git

@@ -1,2 +1,6 @@
+include ':lib-extra'
+include ':lib-core'
 include ':app'
+project(':lib-core').projectDir = new File(rootDir, 'lib/lib-core/')
+project(':lib-extra').projectDir = new File(rootDir, 'lib/lib-extra/')
 rootProject.name = "MultiModuleAndroidApp"
