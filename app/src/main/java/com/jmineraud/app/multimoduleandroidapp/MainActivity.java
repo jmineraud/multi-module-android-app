@@ -7,7 +7,6 @@ import android.util.Log;
 
 import com.jmineraud.lib.core.PublicSingletonA;
 import com.jmineraud.lib.core.PublicSingletonB;
-import com.jmineraud.lib.core.internal.PrivateSingletonA;
 import com.jmineraud.lib.extra.CoreDependentUtils;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,12 +17,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        // PrivateSingletonA.getInstance().getValue()
-        Log.d(TAG, "Public A value: " + PublicSingletonA.getInstance().getValue());
+        Log.d(TAG, "Public A value: " +  PublicSingletonA.getInstance().getValue());
         Log.d(TAG, "Public B value: " + PublicSingletonB.getInstance().getValue().getValue());
         Log.d(TAG, "Extra A value: " + CoreDependentUtils.getCoreValueA());
         Log.d(TAG, "Extra B value: " + CoreDependentUtils.getCoreValueB());
-
     }
 }

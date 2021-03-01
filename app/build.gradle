@@ -16,13 +16,14 @@ android {
     }
 
     buildTypes {
-
         staging {
-
+            debuggable true
+            minifyEnabled true
+            signingConfig debug.signingConfig
         }
 
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -35,7 +36,8 @@ android {
 dependencies {
     debugImplementation project(':lib-core')
     debugImplementation project(':lib-extra')
-
+    stagingImplementation fileTree(dir: 'libs', include: ['*.aar'])
+    releaseImplementation fileTree(dir: 'libs', include: ['*.aar'])
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.3.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
