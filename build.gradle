@@ -22,3 +22,23 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+task assembleLib {
+    dependsOn ':lib-core:assembleRelease'
+    dependsOn ':lib-extra:assembleRelease'
+    tasks.findByPath(':lib-extra:assembleRelease').mustRunAfter ':lib-core:assembleRelease'
+}
+
+//task copyLib(type: Copy) {
+//    // from file("${project(':lib-core').buildDir}/outputs/aar/lib-core-*.aar")
+//    // into file("$buildDir/toArchive")
+////    from "${project(':lib-core').buildDir}/outputs/aar/"
+////    // include 'test-*/'
+////    into "$buildDir/toArchive"
+////    eachFile {
+////        def segments = it.getRelativePath().getSegments() as List
+////        it.setPath(segments.tail().join("/"))
+////        return it
+////    }
+////    includeEmptyDirs = false
+//}
